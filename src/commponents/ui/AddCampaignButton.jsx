@@ -14,7 +14,6 @@ export default function AddCampaignButton({ onClick }) {
             justifyContent: "space-between",
             gap: "12px",
         }}>
-            {/* Kniha ikona */}
             <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "40px 0" }}>
                 <IoIosBookmarks size={100} />
             </div>
