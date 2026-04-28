@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Pozadia */
+  --bg-primary:    #141414;
+  --bg-secondary:  #1E1E1E;
+  --bg-tertiary:   #2A2A2A;
+  --bg-card:       #1A1212;
+
+  /* Červeno-hnedá paleta */
+  --accent-primary:   #7A1E1E;
+  --accent-hover:     #8B2A2A;
+  --accent-border:    #5A2A2A;
+  --accent-muted:     #3A1A1A;
+
+  /* Text */
+  --text-primary:   #E8D5C4;
+  --text-secondary: #9A8A7A;
+  --text-muted:     #5A4A3A;
+
+  /* Border */
+  --border-color: #2A2020;
+
+  /* Font */
+  --font-heading: 'Cinzel', serif;
+  --font-body:    'Inter', sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+h1 { font-size: 24px; }
+h2 { font-size: 20px; }
+h3 { font-size: 16px; }
+
+a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--text-primary);
+}
+
+input, select, button {
+  font-family: var(--font-body);
+}
+
+label {
+  color: var(--text-secondary);
+  font-size: 13px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-muted);
+  border-radius: 3px;
+}
+
+/* ===================== */
+/* RESPONSIVE             */
+/* ===================== */
+
+.sidenav-mobile { display: none; }
+.sidenav-desktop { display: flex; }
+
+/* Tablet */
+@media (max-width: 768px) {
+  .sidenav-desktop { display: none; }
+  .sidenav-mobile  { display: flex; }
+}
+
+/* Dashboard grid */
+.dashboard-content {
+  margin-left: 100px;
+  padding: 32px 40px;
+}
+
+@media (max-width: 768px) {
+  .dashboard-content {
+    margin-left: 0;
+    padding: 24px 16px 90px;  /* bottom padding kvôli mobile nav */
+  }
+}
+
+/* Campaign cards grid */
+.campaign-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Campaign card šírka */
+@media (max-width: 768px) {
+  .campaign-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+}
+
+/* Desktop — zobraz sidebar, skry bottom nav */
+.sidenav-desktop {
+  display: flex;
+}
+.sidenav-mobile {
+  display: none;
+}
+
+/* Mobile/Tablet — skry sidebar, zobraz bottom nav */
+@media (max-width: 1400px) {
+  .sidenav-desktop {
+    display: none !important;
+  }
+  .sidenav-mobile {
+    display: flex !important;
+  }
+}
+
+@keyframes dropdownOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .step-wrapper {
+    margin-left: 0 !important;
+    padding: 16px 16px 100px !important;
+  }
+
+  .step-footer {
+    position: fixed !important;
+    bottom: 70px;  /* nad mobile nav barom */
+    left: 0;
+    right: 0;
+    padding: 12px 20px !important;
+    background-color: var(--bg-primary);
+    border-top: 1px solid #2A2020;
+    z-index: 50;
+  }
+}

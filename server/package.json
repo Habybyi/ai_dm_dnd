@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "backend for my ai dnd",
+  "homepage": "https://github.com/Habybyi/ai_dm_dnd#readme",
+  "bugs": {
+    "url": "https://github.com/Habybyi/ai_dm_dnd/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Habybyi/ai_dm_dnd.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dns": "^0.2.2",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.2.0",
+    "mongoose": "^9.5.0",
+    "path": "^0.12.7"
+  }
+}
