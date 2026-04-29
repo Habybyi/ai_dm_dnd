@@ -8,7 +8,7 @@ import DashboardCh from "./commponents/pages/character/Dashboard.jsx";
 import NewCampaign from "./commponents/pages/NewCampaign.jsx";
 
 import ProtectedRoute from "./commponents/safety/ProtectedRoute.js";
-
+// huh?
 export default function App() {
   return (
       <BrowserRouter>
