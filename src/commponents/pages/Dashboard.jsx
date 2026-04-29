@@ -47,14 +47,14 @@ export default function Dashboard() {
         fetchMyData();
     }, []);
 
-    if (loading) return <div>Načítavam tvoje dobrodružstvá...</div>;
+    if (loading) return <div>Loading your exiting stories...</div>;
 
     return (
         <div style={{ backgroundColor: "var(--bg-primary)", minHeight: "100vh", display: "flex" }}>
             <SideNav />
 
             <div className="dashboard-content" style={{ flex: 1 }}>
-                <h1 style={{ marginBottom: "32px", marginTop: "8px" }}>DashBoard</h1>
+                <h1 style={{ marginBottom: "32px", marginTop: "8px" }}>Campaigns</h1>
 
                 <div className="campaign-grid">
                     {Campaigns.map((c) => (
@@ -66,7 +66,7 @@ export default function Dashboard() {
                             characterName={c.characterName}
                             level={c.level}
                             playerCount={c.playerCount || 0}
-                            onOpen={() => console.log("Otvoriť", c.name)}
+                            onOpen={() => console.log("Open", c.name)}
                         />
                     ))}
                     <AddCampaignButton onClick={() => navigate("/campaign/create")} />
