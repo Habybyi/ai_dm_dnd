@@ -1,7 +1,7 @@
 import { CiSettings } from "react-icons/ci";
 import { FaUser } from "react-icons/fa";
-import { GiCrestedHelmet } from "react-icons/gi";
-import { FaBookDead } from "react-icons/fa";
+import { GiSecretBook, GiSpellBook, GiDwarfFace } from "react-icons/gi";
+import { GiTreasureMap } from "react-icons/gi";
 
 import {useNavigate} from "react-router-dom";
 
@@ -73,7 +73,7 @@ export default function SideNav() {
                     }}
 
                     >
-                        <FaBookDead size={34} color="#fff"/>
+                        <GiSecretBook size={34} color="#fff"/>
                     </button>
                     <button
                         onClick={() => HandleClick("/characters")}
@@ -91,7 +91,7 @@ export default function SideNav() {
                         borderRadius: "12px",
                     }}
                     >
-                        <GiCrestedHelmet size={34} color="#fff" />
+                        <GiDwarfFace size={34} color="#fff" />
                     </button>
                 </div>
 

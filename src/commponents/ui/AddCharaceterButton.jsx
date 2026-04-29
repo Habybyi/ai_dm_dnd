@@ -1,6 +1,6 @@
-import { GiSecretBook, GiSpellBook } from "react-icons/gi";
+import { GiDwarfFace } from "react-icons/gi";
 
-export default function AddCampaignButton({ onClick }) {
+export default function AddCharaceterButton({ onClick }) {
     return (
         <div style={{
             backgroundColor: "var(--bg-secondary)",
@@ -15,7 +15,7 @@ export default function AddCampaignButton({ onClick }) {
             gap: "12px",
         }}>
             <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "40px 0" }}>
-                <GiSecretBook size={100} />
+                <GiDwarfFace size={100} />
             </div>
 
             <button
@@ -34,7 +34,7 @@ export default function AddCampaignButton({ onClick }) {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#6B2A2A"}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#5A1E1E"}
             >
-                New campaign
+                New Character
             </button>
         </div>
     );

@@ -42,9 +42,6 @@ export default function NewCharacter() {
             <SideNav />
 
             <div style={{ width: "100%", maxWidth: "1000px" }}>
-                <p style={{ fontSize: "13px", color: "#5A4A3A", fontStyle: "italic", marginBottom: "6px" }}>
-                    Campaign · Curse of Strahd
-                </p>
                 <h2 style={{
                     fontSize: "28px",
                     color: "#E8D5C4",
