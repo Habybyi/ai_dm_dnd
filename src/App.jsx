@@ -6,9 +6,10 @@ import NewCharacter from "./commponents/pages/NewCharacter.jsx";
 import Custom from "./commponents/pages/character/Custom.jsx";
 import DashboardCh from "./commponents/pages/character/Dashboard.jsx";
 import NewCampaign from "./commponents/pages/NewCampaign.jsx";
+import CharacterSheet from "./commponents/pages/character/CharacterSheet.jsx";
 
 import ProtectedRoute from "./commponents/safety/ProtectedRoute.js";
-// huh?
+
 export default function App() {
   return (
       <BrowserRouter>
@@ -26,12 +27,14 @@ export default function App() {
 
             {/*Characters*/}
             <Route path="/characters" element={<DashboardCh />} />
+            <Route path="/characters/:id" element={<CharacterSheet />} />
 
             {/*Creation*/}
             <Route path="/characters/create" element={<NewCharacter />} />
             <Route path="/characters/create/custom" element={<Custom />} />
             {/*<Route path="/characters/create/help" element={<WithHelp />} />*/}
             {/*<Route path="/characters/create/ai" element={<AICreator />} />*/}
+
         </Routes>
       </BrowserRouter>
   );

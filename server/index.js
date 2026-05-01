@@ -17,6 +17,7 @@ import connectDB from './db.js';
 import * as UserController from './Controllers/UserController.js';
 import * as DashboardController from './Controllers/DashboardController.js';
 import * as CharacterController from './Controllers/CharacterController.js';
+import {getCharacters} from "./Controllers/CharacterController.js";
 
 
 //Port for backend
@@ -54,7 +55,11 @@ app.post('/api/auth/login', UserController.login);
 
 app.get('/dashboard', verifyToken, DashboardController.getStats);
 
-app.post('/character/create', verifyToken, CharacterController.createCharacter);
+app.get('/characters',         verifyToken, CharacterController.getCharacters);
+app.get('/characters/:id',     verifyToken, CharacterController.getCharacter);
+app.post('/characters',        verifyToken, CharacterController.createCharacter);
+app.put('/characters/:id',     verifyToken, CharacterController.updateCharacter);
+app.delete('/characters/:id',  verifyToken, CharacterController.deleteCharacter);
 
 
 

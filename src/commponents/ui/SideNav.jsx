@@ -1,7 +1,7 @@
 import { CiSettings } from "react-icons/ci";
 import { FaUser } from "react-icons/fa";
-import { GiSecretBook, GiSpellBook, GiDwarfFace } from "react-icons/gi";
-import { GiTreasureMap } from "react-icons/gi";
+import { GiSecretBook, GiSpellBook } from "react-icons/gi";
+import { GiTreasureMap, GiDwarfFace } from "react-icons/gi";
 
 import {useNavigate} from "react-router-dom";
 
@@ -126,8 +126,9 @@ export default function SideNav() {
                 zIndex: 100,
                 paddingBottom: "env(safe-area-inset-bottom)",
             }}>
+                <button
                 onClick={() => HandleClick("/dashboard")}
-                <button style={{
+                    style={{
                     backgroundColor: "transparent",
                     border: "none",
                     cursor: "pointer",
