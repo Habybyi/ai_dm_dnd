@@ -22,7 +22,7 @@ export default function Dashboard() {
             try {
                 const token = localStorage.getItem('token');
 
-                const response = await fetch('http://localhost:3030/dashboard', {
+                const response = await fetch('http://localhost:3030/campaign/get', {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`,
@@ -35,7 +35,7 @@ export default function Dashboard() {
                 }
 
                 const data = await response.json();
-
+                console.log(data)
                 setCampaigns(data.campaigns);
                 setLoading(false);
             } catch (err) {
@@ -57,9 +57,9 @@ export default function Dashboard() {
                 <h1 style={{ marginBottom: "32px", marginTop: "8px" }}>Campaigns</h1>
 
                 <div className="campaign-grid">
-                    {Campaigns.map((c) => (
+                    {Campaigns.map((c,i) => (
                         <CampaignCard
-                            key={c.id}
+                            key={c._id || i}
                             name={c.name}
                             image={c.image}
                             role={c.role || "Uknown"}

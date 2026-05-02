@@ -18,6 +18,7 @@ import * as UserController from './Controllers/UserController.js';
 import * as DashboardController from './Controllers/DashboardController.js';
 import * as CharacterController from './Controllers/CharacterController.js';
 import {getCharacters} from "./Controllers/CharacterController.js";
+import {createCampaign} from "./Controllers/DashboardController.js";
 
 
 //Port for backend
@@ -48,12 +49,35 @@ const verifyToken = (req, res, next) => {
     }
 };
 
+const getCode = async (req, res, next) => {
+    try {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+        // Funkcia na vygenerovanie jedného bloku
+        const gen = () => Array.from({ length: 4 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+
+        // Finálny formát XXXX-XXXX-XXXX
+        const generatedVar = `${gen()}-${gen()}-${gen()}`;
+
+        // Dôležité: Posielame objekt s kľúčom "code", ktorý tvoj frontend očakáva
+        return res.status(200).json({
+            success: true,
+            code: generatedVar
+        });
+
+    } catch (error) {
+        console.error("Chyba na serveri:", error);
+        res.status(500).json({ error: "Nepodarilo sa vygenerovať kód" });
+    }
+};
 
 //Auth
 app.post('/api/auth/register', UserController.register);
 app.post('/api/auth/login', UserController.login);
 
-app.get('/dashboard', verifyToken, DashboardController.getStats);
+app.get('/campaign/get', verifyToken, DashboardController.getStats);
+app.post('/campaign/create', verifyToken, DashboardController.createCampaign);
+app.get('/campaign/getcode', verifyToken, getCode);
 
 app.get('/characters',         verifyToken, CharacterController.getCharacters);
 app.get('/characters/:id',     verifyToken, CharacterController.getCharacter);

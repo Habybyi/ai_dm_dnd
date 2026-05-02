@@ -1,7 +1,6 @@
 import { CiSettings } from "react-icons/ci";
 import { FaUser } from "react-icons/fa";
-import { GiSecretBook, GiSpellBook } from "react-icons/gi";
-import { GiTreasureMap, GiDwarfFace } from "react-icons/gi";
+import { GiSecretBook, GiDwarfFace, GiSpellBook,GiTreasureMap } from "react-icons/gi";
 
 import {useNavigate} from "react-router-dom";
 
@@ -16,6 +15,8 @@ export default function SideNav() {
         }
         navigate(Where);
     }
+
+    const icons = [["Characters",GiDwarfFace],["Capaigns",GiSecretBook]];
 
     return (
         <>
@@ -120,7 +121,6 @@ export default function SideNav() {
                 height: "70px",
                 backgroundColor: "#181818",
                 borderTop: "1px solid var(--border-color)",
-                /* display: "flex"  <-- TOTO VYMAŽ */
                 alignItems: "center",
                 justifyContent: "space-around",
                 zIndex: 100,
@@ -139,10 +139,56 @@ export default function SideNav() {
                     gap: "4px",
                     height: "100%",
                 }}>
-                    <FaUser size={22} color="#fff" />
+                    <FaUser size={30} color="#fff" />
                     <span style={{ fontSize: "10px", color: "#9A8A7A" }}>Profil</span>
                 </button>
+                <div style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap:'10vh',
+                }}>
+                    <button
+                        onClick={() => HandleClick("/dashboard")}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--bg-tertiary)"}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                        style={{
+                            backgroundColor: "transparent",
+                            border: "none",
+                            cursor: "pointer",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            gap: "4px",
+                            height: "100%",
+                        }}
 
+                    >
+                        <GiSecretBook size={30} color="#fff"/>
+                        <span style={{ fontSize: "10px", color: "#9A8A7A" }}>Campaigns</span>
+                    </button>
+                    <button
+                        onClick={() => HandleClick("/characters")}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--bg-tertiary)"}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                        style={{
+                            backgroundColor: "transparent",
+                            border: "none",
+                            cursor: "pointer",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            gap: "4px",
+                            height: "100%",
+                        }}
+                    >
+                        <GiDwarfFace size={30} color="#fff" />
+                        <span style={{ fontSize: "10px", color: "#9A8A7A" }}>Characters</span>
+                    </button>
+                </div>
                 <button style={{
                     backgroundColor: "transparent",
                     border: "none",
@@ -154,7 +200,7 @@ export default function SideNav() {
                     gap: "4px",
                     height: "100%",
                 }}>
-                    <CiSettings size={26} color="#fff" />
+                    <CiSettings size={30} color="#fff" />
                     <span style={{ fontSize: "10px", color: "#9A8A7A" }}>Nastavenia</span>
                 </button>
             </nav>
