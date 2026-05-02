@@ -8,6 +8,7 @@ import DashboardCh from "./commponents/pages/character/Dashboard.jsx";
 import NewCampaign from "./commponents/pages/NewCampaign.jsx";
 import CharacterSheet from "./commponents/pages/character/CharacterSheet.jsx";
 import CreateCampaign from "./commponents/pages/campaign/CreateCampaign.jsx";
+import Campaignsheet from "./commponents/pages/campaign/Campaignsheet.jsx";
 
 import ProtectedRoute from "./commponents/safety/ProtectedRoute.js";
 
@@ -26,6 +27,7 @@ export default function App() {
                 // </ProtectedRoute>
             }/>
             <Route path="/campaign/create/custom" element={<CreateCampaign />} />
+            <Route path="/campaign/:id" element={<Campaignsheet />} />
 
             {/*Characters*/}
             <Route path="/characters" element={<DashboardCh />} />

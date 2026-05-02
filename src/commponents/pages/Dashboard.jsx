@@ -4,11 +4,7 @@ import AddCampaignButton from "../ui/AddCampaignButton.jsx";
 import ThemeToggle from "../ui/ThemeToggle.jsx";
 import {useState,useEffect} from "react";
 import {useNavigate} from "react-router-dom";
-
-const mockCampaigns = [
-    { id: 1, name: "Curse of Strahd", role: "player", characterName: "Chris Reland Fred", level: 5, image: null },
-    { id: 2, name: "Curse of Strahd", role: "dm", playerCount: 6, image: null },
-];
+import {login} from "../../../server/Controllers/UserController.js";
 
 export default function Dashboard() {
 
@@ -35,7 +31,6 @@ export default function Dashboard() {
                 }
 
                 const data = await response.json();
-                console.log(data)
                 setCampaigns(data.campaigns);
                 setLoading(false);
             } catch (err) {
@@ -66,7 +61,7 @@ export default function Dashboard() {
                             characterName={c.characterName}
                             level={c.level}
                             playerCount={c.playerCount || 0}
-                            onOpen={() => console.log("Open", c.name)}
+                            onOpen={() => navigate(`/campaign/${c._id}`)}
                         />
                     ))}
                     <AddCampaignButton onClick={() => navigate("/campaign/create")} />
