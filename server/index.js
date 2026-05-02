@@ -15,10 +15,8 @@ import connectDB from './db.js';
 
 // Controllers
 import * as UserController from './Controllers/UserController.js';
-import * as DashboardController from './Controllers/DashboardController.js';
+import * as CampaignController from './Controllers/CampaignController.js'
 import * as CharacterController from './Controllers/CharacterController.js';
-import {getCharacters} from "./Controllers/CharacterController.js";
-import {createCampaign} from "./Controllers/DashboardController.js";
 
 
 //Port for backend
@@ -75,10 +73,16 @@ const getCode = async (req, res, next) => {
 app.post('/api/auth/register', UserController.register);
 app.post('/api/auth/login', UserController.login);
 
-app.get('/campaign/get', verifyToken, DashboardController.getStats);
-app.post('/campaign/create', verifyToken, DashboardController.createCampaign);
+// Campane
+app.get('/campaign/get',         verifyToken, CampaignController.getStats);
+app.get('/campaign/get/:id',     verifyToken, CampaignController.getCampaign);
+app.post('/campaign/create',     verifyToken, CampaignController.createCampaign);
+app.put('/campaign/update/:id',  verifyToken, CampaignController.updateCampaign);
+app.delete('/campaign/delete/:id', verifyToken, CampaignController.deleteCampaign);
 app.get('/campaign/getcode', verifyToken, getCode);
 
+
+// Characters
 app.get('/characters',         verifyToken, CharacterController.getCharacters);
 app.get('/characters/:id',     verifyToken, CharacterController.getCharacter);
 app.post('/characters',        verifyToken, CharacterController.createCharacter);
