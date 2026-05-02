@@ -8,9 +8,18 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
+  // ADD THIS SECTION:
+  optimizeDeps: {
+    exclude: ['hbo-dnsd']
+  },
   server: {
     proxy: {
       '/character': {
+        target: 'http://localhost:3030',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/campaign': {
         target: 'http://localhost:3030',
         changeOrigin: true,
         secure: false,
